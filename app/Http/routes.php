@@ -19,3 +19,10 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
+{
+  Route::get('/', 'AdminHomeController@main');
+  Route::resource('user', 'AdminHomeController');
+  
+});
